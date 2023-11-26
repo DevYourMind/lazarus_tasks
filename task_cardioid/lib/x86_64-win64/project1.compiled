@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1449427374"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq &quot;-FiC:\Users\Dm\Desktop\Репетиторство, Ваня\lib\x86_64-win64&quot; &quot;-FuC:\Users\Dm\Desktop\Репетиторство, Ваня\&quot; &quot;-FUC:\Users\Dm\Desktop\Репетиторство, Ваня\lib\x86_64-win64\&quot; &quot;-FEC:\Users\Dm\Desktop\Репетиторство, Ваня\&quot; &quot;-oC:\Users\Dm\Desktop\Репетиторство, Ваня\project1.exe&quot; project1.lpr"/>
+</CONFIG>
