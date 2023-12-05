@@ -43,7 +43,7 @@ begin
      begin
           for j := 0 to m - 1 do
           begin
-               write(arr[i,j], ' ');
+               write(arr[i,j]:4, ' ');
           end;
           writeln();
      end;

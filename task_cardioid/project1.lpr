@@ -112,7 +112,7 @@ end;
 var
   cardioid: string;
   r: double;
-  arr, filtered_arr: twoDimArray;
+  arr, filtered_arr: twoDimArray; // arr - origin
   n, m: integer;
 begin
      cardioid:='(x^2+y^2-2rx)^2=4r^2(x^2+y^2)';
