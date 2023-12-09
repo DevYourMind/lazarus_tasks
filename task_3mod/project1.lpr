@@ -179,6 +179,29 @@ begin
 end;
 
 
+procedure writetofile(cond_string: string; arr_notebooks: arrnotebook);
+var
+   i: integer;
+   fvar: file of notebook;
+   cond_presence: boolean;
+begin
+   cond_presence:=False;
+   assign(fvar, 'task3.dat');
+   rewrite(fvar);
+   for i:= Low(arr_notebooks) to High(arr_notebooks) do
+   begin
+        if arr_notebooks[i].color=cond_string then
+          begin
+               write(fvar, arr_notebooks[i]);
+               cond_presence:=True;
+          end;
+   end;
+   if cond_presence=false then
+     writeln('No recodrds with condition');
+   close(fvar);
+end;
+
+
 var
    punkt: string;
    ipunkt, n_records, n_cur_notebook, i: integer;
@@ -187,6 +210,8 @@ var
    arr_notebooks: arrNotebook;
    arr_green_notebook: arrNotebook;
    flg_green: boolean;
+   cond_string: string;
+   color_condition: string;
 begin
   n_records:=0;
   n_cur_notebook:=0;
@@ -198,7 +223,8 @@ begin
      WriteLn(utf8decode('3. Сортировка по полю Price'));
      WriteLn(utf8decode('4. Двойная сортировка по текстовому полю'));
      WriteLn(utf8decode('5. Поиск 1я из зелёных тетрадей в 12 стр. (если есть)'));
-     WriteLn(utf8decode('6. Выход'));
+     WriteLn(utf8decode('6. Записать данные из массива в файл по условию'));
+     WriteLn(utf8decode('0. Выход'));
      Write(utf8decode('Ваш выбор: '));
      ReadLn(punkt);
      punkt := Trim(punkt); // обрезка пробелов по краям строки
@@ -231,7 +257,7 @@ begin
                arr_notebooks:=sort_records(arr_notebooks, 1);
                writeln(utf8decode('Отсортированый массив записей: '));
                WriteNotebooks(arr_notebooks);
-            end;
+               end;
             3: begin
                arr_notebooks:=sort_records(arr_notebooks, 2);
                writeln(utf8decode('Отсортированый массив записей: '));
@@ -259,8 +285,13 @@ begin
                if flg_green=false then
                   writeln(utf8decode('Запись не найдена'));
             end;
+            6: begin
+               write(utf8decode('Введите цвет тетрадей, которые нужно записать в файл: '));
+               readln(color_condition);
+               writetofile(color_condition, arr_notebooks);
+            end;
        end;
        end;
-  until ipunkt = 6;
+  until ipunkt = 0;
 end.
 
